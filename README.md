@@ -13,6 +13,8 @@ Project 2 is the follow-up to Project 1. Same multi-tier application, but the go
 | Database | MariaDB |
 | Automation | Bash provisioning scripts wired into Vagrant |
 
+![System Design](./images/system-design.png)
+
 ## Prerequisites
 
 - Oracle VM VirtualBox
@@ -258,15 +260,27 @@ To re-run provisioning only:
 vagrant provision
 ```
 
+Verify all VMs are running in the VirtualBox manager after `vagrant up` completes.
+
+![Virtual Machines](./images/vm.png)
+
 ---
 
 ## Step 4: Validation
 
-Open your browser and navigate to the web01 IP or hostname. Confirm the following are all working.
+Open your browser and navigate to the web01 IP or hostname. The application should load and prompt you to log in.
 
-- Web application loads and redirects to `/login`
-- RabbitMQ management console is accessible
-- Memcached is active and responding from the app VM
+![Welcome Page](./images/welcome.png)
+
+Confirm RabbitMQ is connected.
+
+![RabbitMQ](./images/rabbitmq.png)
+
+Click `All Users` to confirm Memcached is connected.
+
+![User Cache](./images/user.png)
+
+![Cache](./images/cache.png)
 
 ---
 
@@ -285,6 +299,10 @@ Open your browser and navigate to the web01 IP or hostname. Confirm the followin
 vagrant halt
 vagrant destroy -f
 ```
+
+Confirm all VMs are gone in the VirtualBox manager.
+
+![Vagrant Destroy](./images/destro.png)
 
 ---
 
